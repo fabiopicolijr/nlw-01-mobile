@@ -29,6 +29,7 @@ interface Point {
   id: number;
   name: string;
   image: string;
+  image_url: string;
   latitude: number;
   longitude: number;
 }
@@ -60,7 +61,7 @@ const Points = () => {
       if (status !== 'granted') {
         Alert.alert(
           'Oops!',
-          'Precisamos da sua permissão para obter a localização'
+          'Precisamos da sua permissao para obter a localizacao'
         );
         return;
       }
@@ -153,7 +154,7 @@ const Points = () => {
                     <Image
                       style={styles.mapMarkerImage}
                       source={{
-                        uri: point.image,
+                        uri: point.image_url,
                       }}
                     />
                     <Text style={styles.mapMarkerTitle}>{point.name}</Text>

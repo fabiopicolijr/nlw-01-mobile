@@ -24,6 +24,7 @@ interface Params {
 interface Data {
   point: {
     image: string;
+    image_url: string;
     name: string;
     email: string;
     whatsapp: string;
@@ -61,7 +62,7 @@ const Detail = () => {
 
   function handleComposeMail() {
     MailComposer.composeAsync({
-      subject: 'Interesse na coleta de resíduos',
+      subject: 'Interesse na coleta de residuos',
       recipients: [data.point.email],
     });
   }
@@ -76,12 +77,7 @@ const Detail = () => {
           <Feather name="arrow-left" color="#34CB79" size={24} />
         </TouchableOpacity>
 
-        <Image
-          style={styles.pointImage}
-          source={{
-            uri: data.point.image,
-          }}
-        />
+        <Image style={styles.pointImage} source={{uri: data.point.image_url,}}/>
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>
           {data.items.map((item) => item.title).join(', ')}
